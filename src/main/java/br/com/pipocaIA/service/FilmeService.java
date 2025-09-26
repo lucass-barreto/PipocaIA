@@ -47,7 +47,9 @@ public class FilmeService {
     }
 
     public FilmeDTO registrarFilme(FilmeDTO filmeDTO){
-        FilmeModel filmeModelNovo = filmeRepository.save(filmeMapper.map(filmeDTO));
+        FilmeModel filmeModel = filmeMapper.map(filmeDTO);
+        filmeModel.setNota(filmeDTO.getNota() * 2);
+        FilmeModel filmeModelNovo = filmeRepository.save(filmeModel);
         return filmeMapper.map(filmeModelNovo);
     }
 
@@ -66,6 +68,7 @@ public class FilmeService {
         if(filmeModelProcurado.isPresent()){
             FilmeModel filmeModelAtualizado = filmeMapper.map(filmeDTO);
             filmeModelAtualizado.setId(id);
+            filmeModelAtualizado.setNota(filmeDTO.getNota() * 2);
             return filmeMapper.map(filmeRepository.save(filmeModelAtualizado));
         } return null;
     }
