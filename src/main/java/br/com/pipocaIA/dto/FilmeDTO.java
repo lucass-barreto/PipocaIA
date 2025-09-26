@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class FilmeDTO {
 
+    private Long id;
     private String nome;
     private Categoria categoria;
     private double nota;
