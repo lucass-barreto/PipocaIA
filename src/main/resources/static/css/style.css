@@ -1,0 +1,247 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+:root {
+    --cor-fundo: #121212;
+    --cor-fundo-card: #1A1A1A;
+    --cor-texto: #EAEAEA;
+    --cor-destaque: #E50914;
+    --cor-dourado: #FFC107;
+    --cor-texto-secundario: #a0a0a0;
+    --cor-borda: #333;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--cor-texto);
+    background-color: var(--cor-fundo);
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 10px 10px;
+}
+
+.card-custom {
+    background-color: var(--cor-fundo-card);
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+}
+
+.navbar {
+    background-color: var(--cor-fundo-card) !important;
+    border-bottom: 2px solid var(--cor-destaque);
+}
+
+.navbar-brand {
+    color: var(--cor-destaque) !important;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.navbar-brand .fa-film {
+    margin-right: 10px;
+}
+
+.nav-link {
+    color: var(--cor-texto) !important;
+    font-weight: 500;
+}
+
+.nav-link.active {
+    color: var(--cor-destaque) !important;
+}
+
+.btn-primary {
+    background-color: var(--cor-destaque);
+    border-color: var(--cor-destaque);
+}
+
+.btn-primary:hover {
+    background-color: #c00812;
+    border-color: #c00812;
+}
+
+.table-dark {
+    --bs-table-bg: var(--cor-fundo-card);
+    --bs-table-border-color: var(--cor-borda);
+}
+
+.table-hover > tbody > tr:hover > * {
+    --bs-table-accent-bg: rgba(255, 255, 255, 0.05);
+}
+
+
+.star-rating-form {
+    display: inline-flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
+
+.star-rating-form input {
+    display: none;
+}
+
+
+.star-rating-form label {
+    width: 1rem;
+    overflow: hidden;
+    font-size: 2rem;
+    color: #555;
+    cursor: pointer;
+    transition: color 0.2s ease-in-out;
+}
+
+.star-rating-form label:nth-of-type(odd)::before {
+    content: '★';
+    margin-left: -1rem;
+}
+
+.star-rating-form label:nth-of-type(even)::before {
+    content: '★';
+}
+
+.star-rating-form label:hover,
+.star-rating-form label:hover ~ label,
+.star-rating-form input:checked ~ label {
+    color: var(--cor-dourado);
+}
+
+.rating-stars .fa-star-half-alt {
+    position: relative;
+    /*left: -0.5px;*/
+}
+
+.rating-stars .star-half-container {
+    position: relative;
+    display: inline-block;
+}
+
+.rating-stars .star-filled-half {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50%;
+    overflow: hidden;
+    color: var(--cor-dourado);
+}
+
+
+.rating-stars .star-half-container .star-empty-base {
+    color: var(--cor-dourado);
+}
+
+
+.movie-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+}
+
+.navbar-nav {
+    margin-left: 2rem;
+    padding-left: 2rem;
+    border-left: 1px solid var(--cor-borda);
+}
+
+.navbar-nav .nav-item:not(:first-child) {
+    margin-left: 1.5rem;
+    padding-left: 1.5rem;
+    border-left: 1px solid var(--cor-borda);
+}
+
+.text-muted-custom {
+    color: #BBBBBB !important;
+}
+
+.empty-catalog-icon {
+    color: #BBBBBB !important;
+}
+
+
+.form-label {
+    font-weight: 500;
+    color: var(--cor-texto) !important;
+    opacity: 0.9;
+    margin-bottom: 0.5rem;
+}
+
+.form-control::placeholder {
+    color: #888;
+    opacity: 1;
+}
+
+.form-control, .form-select {
+    background-color: #333;
+    color: var(--cor-texto);
+    border: 1px solid #555;
+    padding: 0.75rem 1rem;
+}
+
+.form-control:focus, .form-select:focus {
+    background-color: #333;
+    color: var(--cor-texto);
+    border-color: var(--cor-destaque);
+    box-shadow: 0 0 0 0.25rem rgba(229, 9, 20, 0.25);
+}
+
+.form-select {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23e5e5e5' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+/* --- Melhorias Finais na Página de Recomendações --- */
+
+/* 1. Esconde a linha <hr> antiga que fizemos */
+.title-divider {
+    display: none;
+}
+
+/* 2. Cria uma nova linha vermelha diretamente abaixo do H1 */
+.header-actions h1 {
+    display: inline-block; /* Faz o container do H1 ter a largura exata do texto */
+    position: relative;
+    padding-bottom: 12px; /* Cria um espaço abaixo do texto para a linha */
+}
+
+.header-actions h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%; /* A linha terá 100% da largura do texto H1 */
+    height: 3px;
+    background-color: var(--cor-destaque);
+    opacity: 0.8;
+    border-radius: 2px;
+}
+
+/* 3. Clareia os textos da data, sinopse e nota dentro dos cards */
+.movie-card .card-text,
+.movie-card .card-text.small {
+    color: #cccccc !important; /* Um cinza bem mais claro e legível */
+}
+
+/* Garante que a nota numérica fique bem visível */
+.movie-card .rating-stars span {
+    color: var(--cor-texto) !important;
+    font-weight: 500;
+    margin-left: 5px; /* Adiciona um pequeno espaço entre a estrela e a nota */
+}
+.movie-card .card-title {
+    color: var(--cor-texto) !important;
+}
+
+/* Força o ícone de estrela da nota a usar nossa cor de destaque (dourado) */
+.movie-card .rating-stars .fa-star {
+    color: var(--cor-dourado) !important;
+}
+
+.movie-card .card-text.flex-grow-1 {
+    font-weight: 400;
+}
