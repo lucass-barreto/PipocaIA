@@ -12,27 +12,27 @@ Aplicação web full-stack que utiliza Inteligência Artificial para gerar recom
 
 ---
 
-#### **Dashboard do catálogo vazio (estado inicial):**
-*Tela de boas-vindas amigável para novos usuários, guiando-os para a primeira ação.*
-
-![Dashboard do catálago vazio](assets/estado-vazio.PNG)
-
 ### 📸 Visão Geral da Interface
 
-A aplicação conta com um dashboard limpo e moderno, com uma temática de cinema, que centraliza o catálogo de filmes do usuário e a exibição das recomendações.
+A aplicação conta com um dashboard limpo e moderno, com uma temática de cinema, que centraliza todas as funcionalidades, desde o catálogo de filmes do usuário até a exibição das recomendações.
 
-#### **Dashboard do catálogo:**
+#### **Dashboard do Catálogo Vazio (Estado Inicial):**
+*Tela de boas-vindas amigável para novos usuários, guiando-os para a primeira ação e demonstrando a experiência inicial do aplicativo.*
+
+![Dashboard do catálogo vazio](assets/estado-vazio.PNG)
+
+#### **Dashboard do Catálogo Preenchido:**
 *Tabela com todos os filmes avaliados pelo usuário, com funcionalidades completas de CRUD (Criar, Ler, Atualizar, Deletar).*
 
-![Dashboard do catálago](assets/dashboard.PNG)
+![Dashboard do catálogo](assets/dashboard.PNG)
 
 #### **Formulário de Adição/Alteração:**
 *Formulários intuitivos para adicionar e alterar filmes no catálogo, com um seletor de avaliação de 5 estrelas.*
 
-![Página de alteração de filme](assets/form-alterar.PNG)
 ![Página de adição de filme](assets/form-adicionar.PNG)
+![Página de alteração de filme](assets/form-alterar.PNG)
 
-#### **Recomendações geradas pela IA:**
+#### **Recomendações Geradas pela IA:**
 *Grid responsivo com os filmes recomendados pela IA, enriquecidos com dados (pôster, sinopse, nota) obtidos da API da TMDb.*
 
 ![Exemplo de recomendação gerada](assets/recomendacoes.PNG)
@@ -41,8 +41,9 @@ A aplicação conta com um dashboard limpo e moderno, com uma temática de cinem
 
 ### 📜 Descrição Completa
 
-**PipocaIA** é um sistema inteligente que oferece recomendações de filmes baseadas nas avaliações prévias de um usuário. A aplicação permite o gerenciamento completo de um catálogo pessoal de filmes e, com base nesses dados, consome a **API da OpenAI** para gerar sugestões novas e criativas. Em seguida, orquestra uma segunda chamada à *API da TMDb (The Movie Database)* para enriquecer as sugestões com informações detalhadas, como pôsteres, sinopses e datas de lançamento.
-O back-end foi construído com **Spring WebFlux**, utilizando o **Project Reactor (Mono e Flux)** para um processamento totalmente assíncrono e não-bloqueante. A interface de usuário foi renderizada no lado do servidor com **Thymeleaf** e estilizada com **Bootstrap 5**, proporcionando uma experiência de usuário moderna e responsiva.
+**PipocaIA** é um sistema inteligente que oferece recomendações de filmes baseadas nas avaliações prévias de um usuário. A aplicação permite o gerenciamento completo de um catálogo pessoal de filmes e, com base nesses dados, consome a API da OpenAI para gerar sugestões novas e criativas. Em seguida, orquestra uma segunda chamada à API da TMDb (The Movie Database) para enriquecer as sugestões com informações detalhadas, como pôsteres, sinopses e datas de lançamento.
+O back-end foi construído com Spring WebFlux, utilizando o Project Reactor (Mono e Flux) para um processamento totalmente assíncrono e não-bloqueante. A interface de usuário foi renderizada no lado do servidor com Thymeleaf e estilizada com Bootstrap 5, proporcionando uma experiência de usuário moderna e responsiva.
+
 ---
 
 ### 🚀 Funcionalidades
@@ -113,8 +114,8 @@ cd PipocaIA
 
 Crie um arquivo chamado `.env` na raiz do projeto e adicione a sua chave da OpenAI:
 ```bash
-API_KEY_OPENAI=sk-proj-sua-chave-secreta-aqui
-API_KEY_TMDB=sk-proj-sua-chave-secreta-aqui
+API_KEY_OPENAI=sua-chave-secreta-aqui
+API_KEY_TMDB=sua-chave-secreta-aqui
 ```
 
 *Lembre-se de adicionar o arquivo `.env` ao seu `.gitignore`!*
@@ -127,17 +128,21 @@ Execute o comando Maven para construir o projeto.
 ./mvnw clean install
 ```
 
-4.  **Execute a Aplicação:**
-    Inicie a aplicação através da sua IDE, executando a classe principal, ou via terminal:
-    ```bash
-    ./mvnw spring-boot:run
-    ```
-5.  **Acesse a Aplicação:**
-    * **Dashboard (Catálogo):** [http://localhost:8080/pipocaIA/dashboard](http://localhost:8080/pipocaIA/dashboard)
-    * **Adicionar novo filme:** [http://localhost:8080/pipocaIA/adicionar](http://localhost:8080/pipocaIA/adicionar)
-    * **Página de recomendações:** [http://localhost:8080/pipocaIA/recomendacoes](http://localhost:8080/pipocaIA/recomendacoes)
+**4.  Execute a Aplicação:**
 
-    * **Console do Banco H2:** [http://localhost:8080/h2-console](http://localhost:8080/h2-console) (Use as credenciais do `application.properties` se necessário).
+Inicie a aplicação através da sua IDE, executando a classe principal, ou via terminal:
+    
+```bash
+./mvnw spring-boot:run
+```
+
+**5.  Acesse a Aplicação:**
+
+* **Dashboard (Catálogo):** [http://localhost:8080/pipocaIA/dashboard](http://localhost:8080/pipocaIA/dashboard)
+* **Adicionar novo filme:** [http://localhost:8080/pipocaIA/adicionar](http://localhost:8080/pipocaIA/adicionar)
+* **Página de recomendações:** [http://localhost:8080/pipocaIA/recomendacoes](http://localhost:8080/pipocaIA/recomendacoes)
+
+* **Console do Banco H2:** [http://localhost:8080/h2-console](http://localhost:8080/h2-console) (Use as credenciais do `application.properties` se necessário).
 
 ## 📫 Contato
 
