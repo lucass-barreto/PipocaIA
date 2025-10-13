@@ -84,7 +84,7 @@ Durante o desenvolvimento, vários desafios foram superados, servindo como grand
     - HTML5 / CSS3
     - Bootstrap 5
 - **Banco de Dados:**
-    - PostegreSQL
+    - PostgreSQL
     - Flyway (para versionamento de schema)
 - **Build & Dependências:**
     - Apache Maven
