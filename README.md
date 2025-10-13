@@ -39,11 +39,13 @@ A aplicação conta com um dashboard limpo e moderno, com uma temática de cinem
 
 ---
 
-### 📜 Descrição Completa
+## 📜 Descrição Completa
 
 **PipocaIA** é um sistema inteligente que oferece recomendações de filmes baseadas nas avaliações prévias de um usuário. A aplicação permite o gerenciamento completo de um catálogo pessoal de filmes e, com base nesses dados, consome a API da OpenAI para gerar sugestões novas e criativas. Em seguida, orquestra uma segunda chamada à API da TMDb (The Movie Database) para enriquecer as sugestões com informações detalhadas, como pôsteres, sinopses e datas de lançamento.
-O back-end foi construído com Spring WebFlux, utilizando o Project Reactor (Mono e Flux) para um processamento totalmente assíncrono e não-bloqueante. A interface de usuário foi renderizada no lado do servidor com Thymeleaf e estilizada com Bootstrap 5, proporcionando uma experiência de usuário moderna e responsiva.
 
+O back-end foi construído com Spring WebFlux, utilizando o Project Reactor (Mono e Flux) para um processamento totalmente assíncrono e não-bloqueante. A interface de usuário foi renderizada no lado do servidor com Thymeleaf e estilizada com Bootstrap 5, proporcionando uma experiência de usuário moderna e responsiva. Para completar a arquitetura e garantir um ambiente de desenvolvimento robusto e portável, a aplicação foi totalmente containerizada com
+**Docker** e orquestrada com **Docker Compose
+**, permitindo que todo o sistema, incluindo a aplicação reativa e o banco de dados PostgreSQL, seja executado de forma isolada com um único comando.
 ---
 
 ### 🚀 Funcionalidades
@@ -94,55 +96,53 @@ Durante o desenvolvimento, vários desafios foram superados, servindo como grand
 
 ---
 
-### ⚙️ Instalação e Uso
+## ⚙️ Instalação e Uso
 
-Para executar este projeto localmente, siga os passos abaixo:
+### 🐳 Rodando com Docker (Método Recomendado)
 
-**Pré-requisitos:**
+Esta é a forma mais simples e rápida de executar o projeto, pois todo o ambiente (aplicação reativa + banco de dados
+PostgreSQL) é gerenciado pelo Docker.
 
- * Java (JDK) 17 ou superior instalado.
- * Chaves de API para a OpenAI e a TMDb.
- * Apache Maven instalado*
+1. **Pré-requisitos:**
 
-**1. Clone o repositório:**
-```bash
-git clone https://github.com/lucass-barreto/pipocaIA.git
-cd PipocaIA
-```
+* Docker e Docker Compose instalados.
+* Chaves de API para a OpenAI e a TMDb.
 
-**2. Configure a Chave da API:**
+2. **Clone o repositório:**
+   ```bash
+   git clone [https://github.com/lucass-barreto/pipocaIA.git](https://github.com/lucass-barreto/pipocaIA.git)
+   cd pipocaIA
+   ```
 
-Crie um arquivo chamado `.env` na raiz do projeto e adicione a sua chave da OpenAI:
-```bash
-API_KEY_OPENAI=sua-chave-secreta-aqui
-API_KEY_TMDB=sua-chave-secreta-aqui
-```
+3. **Configure as variáveis de ambiente:**
+   Na raiz do projeto, crie um arquivo `.env` a partir do `.env.example`. Este arquivo deve conter as credenciais do
+   banco de dados e suas chaves de API.
+   ```bash
+   cp .env.example .env
+   ```
+   *Em seguida, edite o arquivo `.env` e insira suas chaves da API da OpenAI e da TMDb nas variáveis correspondentes.*
 
-*Lembre-se de adicionar o arquivo `.env` ao seu `.gitignore`!*
-*Lembre-se de configurar suas Keys corretamente no `application.properties`!*
+4. **Suba o ambiente com Docker Compose:**
+   Este comando irá construir a imagem da aplicação e iniciar os containers em segundo plano.
+   ```bash
+   docker-compose up --build -d
+   ```
 
-**3. Build do Projeto:**
-
-Execute o comando Maven para construir o projeto.
-```bash
-./mvnw clean install
-```
-
-**4.  Execute a Aplicação:**
-
-Inicie a aplicação através da sua IDE, executando a classe principal, ou via terminal:
-    
-```bash
-./mvnw spring-boot:run
-```
-
-**5.  Acesse a Aplicação:**
+5. **Acesse a Aplicação:**
+   Após alguns instantes, a aplicação estará disponível no seu navegador:
 
 * **Dashboard (Catálogo):** [http://localhost:8080/pipocaIA/dashboard](http://localhost:8080/pipocaIA/dashboard)
-* **Adicionar novo filme:** [http://localhost:8080/pipocaIA/adicionar](http://localhost:8080/pipocaIA/adicionar)
-* **Página de recomendações:** [http://localhost:8080/pipocaIA/recomendacoes](http://localhost:8080/pipocaIA/recomendacoes)
 
-* **Console do Banco H2:** [http://localhost:8080/h2-console](http://localhost:8080/h2-console) (Use as credenciais do `application.properties` se necessário).
+### 🐋 Imagem no Docker Hub
+
+Uma imagem pré-construída desta aplicação está disponível publicamente no Docker Hub. Você pode baixá-la diretamente com
+o comando:
+
+```bash
+docker pull lucassbarreto/pipoca-ia-app:0.0.1-RELEASE
+```
+
+**Para mais detalhes, visite o repositório no [Docker Hub](https://hub.docker.com/r/lucassbarreto/pipocaia-app).**
 
 ## 📫 Contato
 
