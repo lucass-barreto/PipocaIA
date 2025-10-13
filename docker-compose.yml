@@ -3,6 +3,7 @@ services:
   pipoca-ia-app:
     build: .
     container_name: pipoca-ia-app
+    image: pipocaia-app:0.0.1-RELEASE
     ports:
       - "8080:8080"
     env_file:
