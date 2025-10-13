@@ -44,9 +44,8 @@ A aplicação conta com um dashboard limpo e moderno, com uma temática de cinem
 
 **PipocaIA** é um sistema inteligente que oferece recomendações de filmes baseadas nas avaliações prévias de um usuário. A aplicação permite o gerenciamento completo de um catálogo pessoal de filmes e, com base nesses dados, consome a API da OpenAI para gerar sugestões novas e criativas. Em seguida, orquestra uma segunda chamada à API da TMDb (The Movie Database) para enriquecer as sugestões com informações detalhadas, como pôsteres, sinopses e datas de lançamento.
 
-O back-end foi construído com Spring WebFlux, utilizando o Project Reactor (Mono e Flux) para um processamento totalmente assíncrono e não-bloqueante. A interface de usuário foi renderizada no lado do servidor com Thymeleaf e estilizada com Bootstrap 5, proporcionando uma experiência de usuário moderna e responsiva. Para completar a arquitetura e garantir um ambiente de desenvolvimento robusto e portável, a aplicação foi totalmente containerizada com
-**Docker** e orquestrada com **Docker Compose
-**, permitindo que todo o sistema, incluindo a aplicação reativa e o banco de dados PostgreSQL, seja executado de forma isolada com um único comando.
+O back-end foi construído com Spring WebFlux, utilizando o Project Reactor (Mono e Flux) para um processamento totalmente assíncrono e não-bloqueante. A interface de usuário foi renderizada no lado do servidor com Thymeleaf e estilizada com Bootstrap 5, proporcionando uma experiência de usuário moderna e responsiva. Para completar a arquitetura e garantir um ambiente de desenvolvimento robusto e portável, a aplicação foi totalmente containerizada com **Docker** e orquestrada com **Docker Compose**, permitindo que todo o sistema, incluindo a aplicação reativa e o banco de dados PostgreSQL, seja executado de forma isolada com um único comando.
+
 ---
 
 ### 🚀 Funcionalidades
